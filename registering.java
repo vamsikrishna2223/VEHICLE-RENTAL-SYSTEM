@@ -1,7 +1,6 @@
 package two.one;
 
 import java.util.*;
-import java.util.Random;
 
 public class registering {
     static String name;
@@ -33,7 +32,10 @@ public class registering {
 	else
 	{
 		System.out.println("*** PLEASE SATISFY ALL CONDITIONS OF PASSWORD ***");
-		System.out.println();
+		System.out.println("Password must contain a Capital letter");
+		System.out.println("Password must contain a samll letter");
+		System.out.println("Password must contain a special character");
+		System.out.println("Password must contain a digit");
 		System.out.println("------ REGISTER AGAIN ------");
 		System.out.println();
 		registration();
@@ -73,12 +75,13 @@ public class registering {
             	System.out.println("***** LOGIN SUCCESSFUL *****");
         	} 
 		else {
-            		System.out.println("*** INVALID EMAIL OR PASSWORD ***");
+            		System.out.println("*** INVALID EMAIL OR PASSWORD ***");		
         	}
 	}
 	else
 	{
 		System.out.println("*** USER ACCOUNT NOT FOUND ***");
+		logging();
 	}
     }
 	
@@ -190,13 +193,13 @@ public class registering {
 		return true;
 	}
 	
-										//checking password
+
 
 	public static boolean cp() {
     		boolean hasUpper = false;
     		boolean hasDigit = false;
     		boolean hasSpecial = false;
-
+		boolean hassmall = false;
     		if (pass.length() < 8) {
         		return false; // Too short
     		}
@@ -210,17 +213,21 @@ public class registering {
 			else if (c >= '0' && c <= '9') {
             			hasDigit = true;
         		} 
+			else if (c>='a' && c<='z')
+			{
+				hassmall=true;
+			}
 			else if (!( (c >= 'A' && c <= 'Z') || 
-                                (c >= 'a' && c <= 'z') || 
+                                (c >= 'a' && c <= 'z') ||(c>='a' && c<='z') || 
                                 (c >= '0' && c <= '9') )) {
             			hasSpecial = true;
         		}
     		}
 
-    		return hasUpper && hasDigit && hasSpecial;
+    		return hasUpper && hasDigit && hasSpecial && hassmall;
 	}
 
-									//checking email
+	
 	
 
     public static boolean ce() {
@@ -247,4 +254,3 @@ public class registering {
 
 
 }
-
