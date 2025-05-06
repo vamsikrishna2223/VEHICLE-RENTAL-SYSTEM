@@ -81,7 +81,7 @@ public class registering {
 	else
 	{
 		System.out.println("*** USER ACCOUNT NOT FOUND ***");
-		logging();
+		
 	}
     }
 	
